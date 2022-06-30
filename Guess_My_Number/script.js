@@ -20,18 +20,24 @@ document.querySelector('.check').addEventListener('click', function () {
   if (!condition) {
     msg.textContent = '🚫 No number provided!';
     console.log(typeof score.textContent);
-  } else if (condition > n) {
-    msg.textContent = 'Too High!';
-    sc--;
-    document.querySelector('.score').textContent = sc;
-    console.log(score.textContent);
-  } else if (condition < n) {
-    msg.textContent = 'Too low!';
-    sc--;
-    document.querySelector('.score').textContent = sc;
-    console.log(score.textContent);
-  } else if (condition === n) {
-    msg.textContent = '🥳 Correct Answer!';
-    console.log(score.textContent);
+  } else if (sc >= 1) {
+    if (condition > n) {
+      msg.textContent = 'Too High!';
+      document.querySelector('.score').textContent = sc--;
+      console.log(score.textContent);
+    } else if (condition < n) {
+      msg.textContent = 'Too low!';
+      document.querySelector('.score').textContent = sc--;
+      console.log(score.textContent);
+    } else if (condition === n) {
+      msg.textContent = '🥳 Correct Answer!';
+      console.log(score.textContent);
+      document.querySelector('body')
+    }
+  }
+  else
+  {
+    msg.textContent = '💥 You have lost the game!';
+    score.textContent = 0;
   }
 });
