@@ -37,7 +37,7 @@ document.querySelector('.check').addEventListener('click', function () {
   }
   else
   {
-    msg.textContent = '💥 You have lost the game!\n\t❗❗Try Again❗❗';
+    msg.textContent = '💥 You have lost the game!\n❗❗Try Again❗❗';
     score.textContent = 0;
   }
 });
