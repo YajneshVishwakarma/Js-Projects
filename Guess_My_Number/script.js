@@ -32,12 +32,14 @@ document.querySelector('.check').addEventListener('click', function () {
     } else if (condition === n) {
       msg.textContent = '🥳 Correct Answer!';
       console.log(score.textContent);
-      document.querySelector('body')
+      document.querySelector('body').style.backgroundColor = '#60b347';
+      document.querySelector('.number').style.backgroundColor = '#222';
+      document.querySelector('header').style.borderBottom = '7px solid #222';
     }
   }
   else
   {
-    msg.textContent = '💥 You have lost the game!\n❗❗Try Again❗❗';
+    msg.textContent = '💥 You have lost the game!\n\t❗❗Try Again❗❗';
     score.textContent = 0;
   }
 });
