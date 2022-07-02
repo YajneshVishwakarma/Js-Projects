@@ -5,18 +5,20 @@
 // document.querySelector('.message').textContent = '🥳 Correct Answer!';
 // console.log(document.querySelector('.guess').value);
 
-const n = Math.trunc(Math.random() * 20) + 1;
+let n = Math.trunc(Math.random() * 20) + 1;
 console.log(n);
+prompt(n);
 
 const score = document.querySelector('.score');
+const hScore = document.querySelector('.highscore');
 const msg = document.querySelector('.message');
 
 let sc = score.textContent;
 
-document.querySelector('.check').addEventListener('click', function () {
+const start = function () {
   const val = document.querySelector('.guess');
   let condition = Number(val.value);
-  
+
   if (!condition) {
     msg.textContent = '🚫 No number provided!';
     console.log(typeof score.textContent);
@@ -35,12 +37,36 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('body').style.backgroundColor = '#60b347';
       document.querySelector('.number').style.backgroundColor = '#222';
       document.querySelector('header').style.borderBottom = '7px solid #222';
+      document.querySelector('.message').style{
+
+      }
+      document.querySelector('.number').style.color = '#60b347';
+      document.querySelector('.number').textContent = n;
+      if (Number(score.textContent) > Number(hScore.textContent)) {
+        hScore.textContent = score.textContent;
+      }
     }
-  }
-  else
-  {
-    msg.textContent = '💥 You have lost the game!\n\t❗❗Try Again❗❗';
+  } else {
+    msg.textContent = '💥 You have lost the game!\n❗❗Try Again❗❗';
     score.textContent = 0;
   }
+};
+
+document.querySelector('.check').addEventListener('click', start);
+
+document.querySelector('.again').addEventListener('click', function () {
+  let j = 20;
+  n = Math.trunc(Math.random() * 20) + 1;
+
+  document.querySelector('.message').textContent = 'Start guessing...';
+
+  // displayMessage('Start guessing...');
+  document.querySelector('header').style.borderBottom = '7px solid #eee';
+  document.querySelector('.number').style.color = '#222';
+  document.querySelector('.number').style.backgroundColor = '#eee';
+  document.querySelector('.score').textContent = j;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').textContent = '0';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
 });
-//It is a very nice project you have used very high level js i am impressed you are selected for the Amazon company for 200k$ per day plz send me your resume as soon as possible regards crom yash 
