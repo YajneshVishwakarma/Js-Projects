@@ -3,7 +3,6 @@
 
 let n = Math.trunc(Math.random() * 20) + 1;
 console.log(n);
-prompt(n);
 
 const score = document.querySelector('.score');
 const hScore = document.querySelector('.highscore');
