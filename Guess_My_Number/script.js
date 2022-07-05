@@ -48,10 +48,14 @@ const start = function () {
         hScore.textContent = score.textContent;
       }
     }
-  } else if(sc == 1) {
+  } else if (sc == 1) {
     msg.textContent = '💥 You have lost the game!\n❗❗Try Again❗❗';
     score.textContent = '0';
-    
+    document.querySelector('.number').textContent = n;
+    document.querySelector('body').style.backgroundColor = ' #FF5733 ';
+    document.querySelector('.number').style.backgroundColor = '#222';
+    document.querySelector('header').style.borderBottom = '7px solid #222';
+    document.querySelector('.number').style.color = ' #FF5733 ';
   }
 };
 
