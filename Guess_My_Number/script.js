@@ -13,7 +13,12 @@ const score = document.querySelector('.score');
 const hScore = document.querySelector('.highscore');
 const msg = document.querySelector('.message');
 
-let sc = score.textContent;
+let sc = Number(score.textContent);
+
+const scoreMinus = function () {
+  sc = score.textContent;
+  document.querySelector('.score').textContent = --sc;
+};
 
 const start = function () {
   const val = document.querySelector('.guess');
@@ -22,14 +27,14 @@ const start = function () {
   if (!condition) {
     msg.textContent = '🚫 No number provided!';
     console.log(typeof score.textContent);
-  } else if (sc >= 1) {
+  } else if (sc >= 2) {
     if (condition > n) {
       msg.textContent = 'Too High!';
-      document.querySelector('.score').textContent = sc--;
+      scoreMinus();
       console.log(score.textContent);
     } else if (condition < n) {
       msg.textContent = 'Too low!';
-      document.querySelector('.score').textContent = sc--;
+      scoreMinus();
       console.log(score.textContent);
     } else if (condition === n) {
       msg.textContent = '🥳 Correct Answer!';
@@ -37,18 +42,16 @@ const start = function () {
       document.querySelector('body').style.backgroundColor = '#60b347';
       document.querySelector('.number').style.backgroundColor = '#222';
       document.querySelector('header').style.borderBottom = '7px solid #222';
-      document.querySelector('.message').style{
-
-      }
       document.querySelector('.number').style.color = '#60b347';
       document.querySelector('.number').textContent = n;
-      if (Number(score.textContent) > Number(hScore.textContent)) {
+      if (score.textContent > hScore.textContent) {
         hScore.textContent = score.textContent;
       }
     }
-  } else {
+  } else if(sc == 1) {
     msg.textContent = '💥 You have lost the game!\n❗❗Try Again❗❗';
-    score.textContent = 0;
+    score.textContent = '0';
+    
   }
 };
 
@@ -59,8 +62,6 @@ document.querySelector('.again').addEventListener('click', function () {
   n = Math.trunc(Math.random() * 20) + 1;
 
   document.querySelector('.message').textContent = 'Start guessing...';
-
-  // displayMessage('Start guessing...');
   document.querySelector('header').style.borderBottom = '7px solid #eee';
   document.querySelector('.number').style.color = '#222';
   document.querySelector('.number').style.backgroundColor = '#eee';
