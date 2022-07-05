@@ -1,9 +1,5 @@
 'use strict';
 
-// console.log(document.querySelector('.message').textContent);
-
-// document.querySelector('.message').textContent = '🥳 Correct Answer!';
-// console.log(document.querySelector('.guess').value);
 
 let n = Math.trunc(Math.random() * 20) + 1;
 console.log(n);
