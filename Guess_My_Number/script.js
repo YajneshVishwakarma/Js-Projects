@@ -1,8 +1,13 @@
 'use strict';
 
+// console.log(document.querySelector('.message').textContent);
+
+// document.querySelector('.message').textContent = '🥳 Correct Answer!';
+// console.log(document.querySelector('.guess').value);
 
 let n = Math.trunc(Math.random() * 20) + 1;
 console.log(n);
+prompt(n);
 
 const score = document.querySelector('.score');
 const hScore = document.querySelector('.highscore');
@@ -12,7 +17,7 @@ let sc = Number(score.textContent);
 
 const scoreMinus = function () {
   sc = score.textContent;
-  document.querySelector('.score').textContent = --sc;
+  score.textContent = --sc;
 };
 
 const start = function () {
@@ -57,14 +62,13 @@ const start = function () {
 document.querySelector('.check').addEventListener('click', start);
 
 document.querySelector('.again').addEventListener('click', function () {
-  let j = 20;
   n = Math.trunc(Math.random() * 20) + 1;
-
   document.querySelector('.message').textContent = 'Start guessing...';
+  score.textContent = '20';
+  sc = 20;
   document.querySelector('header').style.borderBottom = '7px solid #eee';
   document.querySelector('.number').style.color = '#222';
   document.querySelector('.number').style.backgroundColor = '#eee';
-  document.querySelector('.score').textContent = j;
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').textContent = '0';
   document.querySelector('body').style.backgroundColor = '#222';
