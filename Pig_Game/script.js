@@ -7,3 +7,5 @@ scoreEL0.textContent = '0';
 scoreEL1.textContent = '0';
 
 let n = Math.trunc(Math.random()*7);
+
+
